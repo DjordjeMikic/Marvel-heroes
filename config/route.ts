@@ -11,5 +11,5 @@ export const API_URL = `${BASE_URL}/v1/public/characters?apikey=${PUBLIC_KEY}&ts
 export const getCharacterById = (id: string) =>
   `${BASE_URL}/v1/public/characters/${id}?apikey=${PUBLIC_KEY}&ts=${ts}&hash=${hash}`;
 
-export const getByName = (name: string) =>
+export const getByName = (name: string = '3-D') =>
   `${BASE_URL}/v1/public/characters?apikey=${PUBLIC_KEY}&ts=${ts}&hash=${hash}&nameStartsWith=${name}`;

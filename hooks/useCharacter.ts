@@ -13,7 +13,7 @@ export const useCharacter = () => {
   const { id } = useRouter().query;
 
   useEffect(() => {
-    if(!singleCharacter) {
+    if(!singleCharacter && id) {
       (async () => {
         dispatch(setIsLoading(true));
         const res = await axios({
