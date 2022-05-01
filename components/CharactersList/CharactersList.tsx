@@ -1,5 +1,5 @@
-import { Stack } from '@mui/material';
 import React from 'react';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 import { useCharacters } from '../../hooks/useCharacters';
 import { Character } from '../Character/Character';
@@ -7,11 +7,13 @@ import { CharacterType } from '../../types';
 import { useAppSelector } from '../../store/store';
 import { Loading } from '../Loading/Loading';
 import { useDispatch } from 'react-redux';
-import { setCharacter } from '../../store/slice';
+import { setCharacter, setOffset } from '../../store/slice';
+import { ScrollLoader } from './ScrollLoader';
+import { CharactersListContainer } from './CharactersList.style';
 
 export const CharactersList = () => {
   const { characters } = useCharacters();
-  const { isLoading } = useAppSelector((state) => state.store);
+  const { isLoading, offset } = useAppSelector((state) => state.store);
   const dispatch = useDispatch();
 
   const onClick = (character: CharacterType) =>
@@ -20,14 +22,22 @@ export const CharactersList = () => {
   if (isLoading) return <Loading />;
 
   return (
-    <Stack width="100%" alignItems="center" spacing={1} margin="100px 0">
-      {characters.map((character: CharacterType, index: number) => (
-        <Character
-          key={index}
-          { ...character }
-          onClick={() => onClick(character)}
-        />
-      ))}
-    </Stack>
+    <CharactersListContainer spacing={1}>
+      <InfiniteScroll
+        dataLength={characters.length}
+        next={() => dispatch(setOffset(offset + 20))}
+        hasMore={true}
+        loader={<ScrollLoader />}
+        style={{ width: '100%' }}
+      >
+        {characters.map((character: CharacterType, index: number) => (
+          <Character
+            key={index}
+            { ...character }
+            onClick={() => onClick(character)}
+          />
+        ))}
+      </InfiniteScroll>
+    </CharactersListContainer>
   );
 };

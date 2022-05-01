@@ -1,4 +1,4 @@
-import { AppBar, Stack, Toolbar, Typography } from '@mui/material';
+import { AppBar, Stack, Toolbar, Typography, useMediaQuery } from '@mui/material';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 
@@ -12,6 +12,7 @@ export const Nav = () => {
   const [search, setSearch] = useState('');
   const [heroes, setHeroes] = useState([]);
   const { liveSearchByName } = useCharacter();
+  const matches = useMediaQuery('(max-width: 1024px)');
 
   const onChange = (e: any) => setSearch(e.target.value);
   const cls = () => {
@@ -34,7 +35,7 @@ export const Nav = () => {
         <Toolbar disableGutters>
           <Stack
             width="90%"
-            direction="row"
+            direction={matches ? 'column' : 'row'}
             alignItems="center"
             margin="0 auto"
           >

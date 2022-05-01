@@ -9,6 +9,8 @@ const hash = crypto.createHash('md5').update(ts + PRIVATE_KEY + PUBLIC_KEY).dige
 export const API_URL =
   `${BASE_URL}/v1/public/characters?apikey=${PUBLIC_KEY}&ts=${ts}&hash=${hash}`;
 
+export const getCharacters = (offset: number) => `${API_URL}&offset=${offset}`;
+
 export const getCharacterById = (id: string) =>
   `${BASE_URL}/v1/public/characters/${id}?apikey=${PUBLIC_KEY}&ts=${ts}&hash=${hash}`;
 

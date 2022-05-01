@@ -9,6 +9,12 @@ export const SearchContainer = styled(Box)`
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
+
+  @media(max-width: 1024px) {
+    width: 100%;
+    margin-top: 26px;
+    position: relative;
+  }
 `;
 
 export const HeroesContainer = styled(Box)`
@@ -20,6 +26,11 @@ export const HeroesContainer = styled(Box)`
   top: 75%;
   left: 50%;
   transform: translateX(-50%);
+
+  @media(max-width: 1024px) {
+    width: 90%;
+    margin-top: 4%;
+  }
 `;
 
 export const HeroItemContainer = styled(Box)<{ notlast: boolean; }>`

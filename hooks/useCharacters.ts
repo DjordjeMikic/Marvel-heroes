@@ -2,26 +2,41 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
 
-import { API_URL } from '../config/route';
+import { getCharacters } from '../config/route';
 import { setIsLoading } from '../store/slice';
+import { useAppSelector } from '../store/store';
 
 export const useCharacters = () => {
-  const [characters, setCharacters] = useState([]);
+  const [characters, setCharacters] = useState<Array<any>>([]);
+  const { offset } = useAppSelector((state) => state.store);
   const dispatch = useDispatch();
 
   useEffect(() => {
     (async () => {
-      dispatch(setIsLoading(true));
+      if (offset < 20) {
+        dispatch(setIsLoading(true));
 
-      const res = await axios({
-        method: 'get',
-        url: API_URL,
-      });
+        const res = await axios({
+          method: 'get',
+          url: getCharacters(offset),
+        });
 
-      setCharacters(res.data.data.results);
-      dispatch(setIsLoading(false));
+        setCharacters([...characters, ...res.data.data.results]);
+        dispatch(setIsLoading(false));
+      } else {
+        const res = await axios({
+          method: 'get',
+          url: getCharacters(offset),
+        });
+        setCharacters([...characters, ...res.data.data.results]);
+      }
     })();
-  }, [dispatch]);
+  }, [dispatch, offset]);
+
+
+  // useEffect(() => {
+  //   console.log(characters);
+  // }, [characters]);
 
   return {
     characters,
