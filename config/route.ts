@@ -6,10 +6,12 @@ const PUBLIC_KEY = '2cf49eabfd53d8495f654490588346a0';
 const ts = new Date().getTime();
 const hash = crypto.createHash('md5').update(ts + PRIVATE_KEY + PUBLIC_KEY).digest('hex');
 
-export const API_URL = `${BASE_URL}/v1/public/characters?apikey=${PUBLIC_KEY}&ts=${ts}&hash=${hash}`;
+export const API_URL =
+  `${BASE_URL}/v1/public/characters?apikey=${PUBLIC_KEY}&ts=${ts}&hash=${hash}`;
 
 export const getCharacterById = (id: string) =>
   `${BASE_URL}/v1/public/characters/${id}?apikey=${PUBLIC_KEY}&ts=${ts}&hash=${hash}`;
 
 export const getByName = (name: string = '3-D') =>
+  // eslint-disable-next-line
   `${BASE_URL}/v1/public/characters?apikey=${PUBLIC_KEY}&ts=${ts}&hash=${hash}&nameStartsWith=${name}`;

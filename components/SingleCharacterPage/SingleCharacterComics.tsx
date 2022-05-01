@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import { SingleCharacterComicContainer } from "./SingleCharacter.style";
+import { SingleCharacterComicContainer } from './SingleCharacter.style';
 
 export interface SingleCharacterComics {
   isodd: boolean;
@@ -14,4 +14,4 @@ export const SingleCharacterComics: React.FC<SingleCharacterComics> = ({
   <SingleCharacterComicContainer isodd={isodd}>
     {name}
   </SingleCharacterComicContainer>
-)
+);

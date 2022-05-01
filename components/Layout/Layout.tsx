@@ -7,7 +7,7 @@ export const Layout: React.FC<{ children: ReactElement }> = ({ children }) => (
   <LayoutContainer>
     <Nav />
     <ContentContainer>
-      {children}      
+      {children}
     </ContentContainer>
   </LayoutContainer>
-)
+);

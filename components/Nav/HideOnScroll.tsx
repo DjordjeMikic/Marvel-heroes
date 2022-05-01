@@ -1,5 +1,5 @@
-import { Slide, useScrollTrigger } from "@mui/material";
-import React, { ReactElement } from "react";
+import { Slide, useScrollTrigger } from '@mui/material';
+import React, { ReactElement } from 'react';
 
 interface HideOnScrollProps {
   children: ReactElement;
@@ -18,5 +18,5 @@ export const HideOnScroll: React.FC<HideOnScrollProps> = ({
     <Slide appear={false} direction="down" in={!trigger}>
       {children}
     </Slide>
-  )
-}
+  );
+};

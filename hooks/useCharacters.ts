@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import { useDispatch } from "react-redux";
-import axios from "axios";
+import { useDispatch } from 'react-redux';
+import axios from 'axios';
 
-import { API_URL } from "../config/route";
-import { setIsLoading } from "../store/slice";
+import { API_URL } from '../config/route';
+import { setIsLoading } from '../store/slice';
 
 export const useCharacters = () => {
   const [characters, setCharacters] = useState([]);
@@ -20,10 +20,10 @@ export const useCharacters = () => {
 
       setCharacters(res.data.data.results);
       dispatch(setIsLoading(false));
-    })();    
+    })();
   }, [dispatch]);
 
   return {
     characters,
-  }
-}
+  };
+};

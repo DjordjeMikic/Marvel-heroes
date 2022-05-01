@@ -11,7 +11,7 @@ export const CharacterContainer = styled(Box)`
   box-shadow: 0 0 2px 1px ${({ theme }) => theme.palette.primary.light};
   transition: all 0.4s;
 
-  &:hover {    
+  &:hover {
     box-shadow: 0 0 2px 1px ${({ theme }) => theme.palette.error.light};
   }
 `;

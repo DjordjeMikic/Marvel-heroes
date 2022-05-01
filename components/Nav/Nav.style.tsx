@@ -30,7 +30,8 @@ export const HeroItemContainer = styled(Box)<{ notlast: boolean; }>`
   padding: 16px 6px;
   cursor: pointer;
   color: ${({ theme }) => theme.palette.common.black};
-  border-bottom: ${({ notlast, theme }) => notlast && `1px solid ${theme.palette.grey[200]}`};
+  border-bottom: ${({ notlast, theme }) =>
+    notlast && `1px solid ${theme.palette.grey[200]}`};
   transition: all 0.4s;
 
   &:hover {

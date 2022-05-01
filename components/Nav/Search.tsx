@@ -6,13 +6,14 @@ import React, { ChangeEvent } from 'react';
 interface SearchProps {
   value: string;
   cls: () => void;
-  onChange: (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+  onChange: (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+    void;
 }
 
 export const Search: React.FC<SearchProps> = ({
   value,
   cls,
-  onChange
+  onChange,
 }) => (
   <TextField
     variant="standard"
@@ -21,8 +22,8 @@ export const Search: React.FC<SearchProps> = ({
       fontSize: 1.1,
       borderRadius: '4px',
       padding: '0 6px',
-      backgroundColor: '#fff'
-  }}
+      backgroundColor: '#fff',
+    }}
     placeholder="Search"
     InputProps={{
       disableUnderline: true,
@@ -37,4 +38,4 @@ export const Search: React.FC<SearchProps> = ({
     value={value}
     onChange={onChange}
   />
-)
+);

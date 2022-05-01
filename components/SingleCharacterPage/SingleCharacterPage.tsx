@@ -1,26 +1,28 @@
-import { Avatar, Stack, Typography } from "@mui/material";
-import React from "react";
+import { Avatar, Stack, Typography } from '@mui/material';
+import React from 'react';
 
-import { useCharacter } from "../../hooks/useCharacter";
-import { Loading } from "../Loading/Loading";
-import { LinkContainer } from "./SingleCharacter.style";
-import { SingleCharacterComics } from "./SingleCharacterComics";
-import { SingleCharacterSeries } from "./SingleCharacterSeries";
-import { SingleCharacterStories } from "./SingleCharacterStories";
+import { useCharacter } from '../../hooks/useCharacter';
+import { Loading } from '../Loading/Loading';
+import { LinkContainer } from './SingleCharacter.style';
+import { SingleCharacterComics } from './SingleCharacterComics';
+import { SingleCharacterSeries } from './SingleCharacterSeries';
+import { SingleCharacterStories } from './SingleCharacterStories';
 
 export const SingleCharacterPage: React.FC = () => {
   const { singleCharacter, isLoading } = useCharacter();
 
-  if(isLoading) return <Loading />;
-  
-  if(!singleCharacter) return null;
+  if (isLoading) return <Loading />;
+
+  if (!singleCharacter) return null;
 
   return (
     <Stack direction="row" margin="101px 0 0 0" spacing={1}>
       <Stack spacing={3} width="25%">
         <Stack direction="row" alignItems="center" spacing={4}>
           <Avatar
-            src={`${singleCharacter.thumbnail.path}.${singleCharacter.thumbnail.extension}`}
+            src={`
+              ${singleCharacter.thumbnail.path}.${singleCharacter.thumbnail.extension}`
+            }
           />
           <Typography variant="h4">
             {singleCharacter.name}
@@ -35,10 +37,10 @@ export const SingleCharacterPage: React.FC = () => {
           ))}
         </Stack>
         {singleCharacter.events.items.length > 0 &&
-          singleCharacter.events.items.map((event: any, index: number) => (          
+          singleCharacter.events.items.map((event: any, index: number) => (
             <SingleCharacterComics key={index} isodd={index % 2} {...event} />
-          )
-        )}
+          ),
+          )}
       </Stack>
       <Stack width="25%">
         <Typography variant="h5" align="center">Commics</Typography>
@@ -59,5 +61,5 @@ export const SingleCharacterPage: React.FC = () => {
         ))}
       </Stack>
     </Stack>
-  )
-}
+  );
+};

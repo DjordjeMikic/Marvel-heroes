@@ -1,6 +1,7 @@
-import type { NextPage } from "next";
+import type { NextPage } from 'next';
+import React from 'react';
 
-import { CharactersList } from "../components/CharactersList/CharactersList";
+import { CharactersList } from '../components/CharactersList/CharactersList';
 
 const Home: NextPage = () => <CharactersList />;
 

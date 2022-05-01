@@ -1,11 +1,11 @@
-import { Avatar, Typography } from "@mui/material";
-import { useRouter } from "next/router";
-import React from "react";
-import { useDispatch } from "react-redux";
+import { Avatar, Typography } from '@mui/material';
+import { useRouter } from 'next/router';
+import React from 'react';
+import { useDispatch } from 'react-redux';
 
-import { setCharacter } from "../../store/slice";
-import { CharacterType } from "../../types";
-import { HeroItemContainer } from "./Nav.style";
+import { setCharacter } from '../../store/slice';
+import { CharacterType } from '../../types';
+import { HeroItemContainer } from './Nav.style';
 
 interface HeroItemProps {
   notlast: boolean;
@@ -35,5 +35,5 @@ export const HeroItem: React.FC<HeroItemProps> = ({
       <Avatar src={image} />
       <Typography>{hero.name}</Typography>
     </HeroItemContainer>
-  )
-}
+  );
+};

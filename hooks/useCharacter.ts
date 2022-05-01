@@ -8,12 +8,12 @@ import { setCharacter, setIsLoading } from '../store/slice';
 import { getByName, getCharacterById } from '../config/route';
 
 export const useCharacter = () => {
-  const { singleCharacter, isLoading } = useAppSelector(state => state.store);
+  const { singleCharacter, isLoading } = useAppSelector((state) => state.store);
   const dispatch = useDispatch();
   const { id } = useRouter().query;
 
   useEffect(() => {
-    if(!singleCharacter && id) {
+    if (!singleCharacter && id) {
       (async () => {
         dispatch(setIsLoading(true));
         const res = await axios({
@@ -22,7 +22,7 @@ export const useCharacter = () => {
         });
         dispatch(setCharacter(res.data.data.results[0]));
         dispatch(setIsLoading(false));
-      })()
+      })();
     }
   }, [id, dispatch, singleCharacter]);
 
@@ -31,15 +31,15 @@ export const useCharacter = () => {
       method: 'get',
       url: getByName(search),
     });
-    if(res?.data.data.results) {
+    if (res?.data.data.results) {
       return res?.data.data.results.slice(0, 5);
     }
     return 'No heroes by search query';
-  }
-  
+  };
+
   return {
     isLoading,
     singleCharacter,
     liveSearchByName,
-  }
-}
+  };
+};

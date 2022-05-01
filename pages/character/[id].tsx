@@ -1,7 +1,9 @@
-import React from "react";
-import type { NextPage } from "next";
+import React from 'react';
+import type { NextPage } from 'next';
 
-import { SingleCharacterPage } from "../../components/SingleCharacterPage/SingleCharacterPage";
+import {
+  SingleCharacterPage,
+} from '../../components/SingleCharacterPage/SingleCharacterPage';
 
 const SingleCharacter: NextPage = () => <SingleCharacterPage />;
 

@@ -1,10 +1,10 @@
-import { CircularProgress } from "@mui/material";
-import React from "react";
+import { CircularProgress } from '@mui/material';
+import React from 'react';
 
-import { LoadingContainer } from "./Loading.style";
+import { LoadingContainer } from './Loading.style';
 
 export const Loading = () => (
-  <LoadingContainer>    
+  <LoadingContainer>
     <CircularProgress />
   </LoadingContainer>
-)
+);

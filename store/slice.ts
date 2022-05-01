@@ -1,6 +1,6 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { CharacterType } from "../types"
+import { CharacterType } from '../types';
 
 interface StateType {
   characters: CharacterType[] | null;
@@ -32,7 +32,7 @@ const storeSlice = createSlice({
     setOffset: (state: StateType, action: PayloadAction<number>) => {
       state.offset = action.payload;
     },
-  }
+  },
 });
 
 export const {
